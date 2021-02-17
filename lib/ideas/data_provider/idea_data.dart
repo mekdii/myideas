@@ -6,7 +6,7 @@ import 'package:http/http.dart';
 
 class IdeaDataProvider {
   final host = 'http://192.168.43.202:3000';
-  var url = "http://192.168.43.202:3000/course/courses";
+  var url = "http://192.168.43.202:3000/idea/ideas";
   //final http.Client httpClient;
 
   // final http.Client httpClient;
@@ -47,7 +47,7 @@ class IdeaDataProvider {
   Future<List<Idea>> getIdeas() async {
     // print("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh$headers\n");
     var response = await http.get(
-      "$host/course/courses/",
+      "$host/idea/ideas/",
     );
     print("The Response In The Idea Page : ${response.body}");
     // if (response == null) {
@@ -81,7 +81,7 @@ class IdeaDataProvider {
   Future<void> deleteIdea(String _id) async {
     print("this is deleting");
     final http.Response response = await http.delete(
-      '$host/course/courses/$_id',
+      '$host/idea/ideas/$_id',
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -94,7 +94,7 @@ class IdeaDataProvider {
 
   Future<void> updateIdea(Idea idea) async {
     final http.Response response = await http.put(
-      '$host/course/courses/${idea.id}',
+      '$host/idea/ideas/${idea.id}',
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
